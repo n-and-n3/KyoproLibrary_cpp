@@ -68,7 +68,6 @@ unsigned long long isqrt_aux(int c,unsigned long long n){
     } else {
         int k = (c - 1) / 2;
         unsigned long long a = isqrt_aux(c / 2, n >> (2*k + 2));
-        cout << (a << k) + (n >> (k+2)) / a << endl;
         return (a << k) + (n >> (k+2)) / a;
     }
 }
@@ -81,6 +80,8 @@ unsigned long isqrt(unsigned long long n){
         return n < a * a ? a - 1 : a;
     }
 }
+
+
 
 // ===========================================
 
