@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// https://atcoder.jp/contests/atc001/submissions/70817243
 
 struct UnionFind{
     vector<int> parent;
