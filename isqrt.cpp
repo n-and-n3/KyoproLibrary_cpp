@@ -50,18 +50,6 @@ vector<ll> pow10ll{1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000
 vector<ll> di{0,1,0,-1};
 vector<ll> dj{1,0,-1,0};
 
-const std::vector<int> hash2pos{1, 2, 60, 3, 61, 41, 55, 4, 62, 33, 50, 42, 56, 20, 36, 5, 63, 53, 31, 34, 51, 13, 15, 43, 57, 17, 28, 21, 37, 24, 45, 6, 64, 59, 40, 54, 32, 49, 19, 35, 52, 30, 12, 14, 16, 27, 23, 44, 58, 39, 48, 18, 29, 11, 26, 22, 38, 47, 10, 25, 46, 9, 8, 7};
-
-int bit_length_(unsigned long long x){
-  if (x == 0) return 0;
-  x |= (x >> 1);x |= (x >> 2);x |= (x >> 4);x |= (x >> 8);x |= (x >> 16);x |= (x >> 32);x = x ^ (x >> 1);
-  return hash2pos[(x * 0x03F566ED27179461UL) >> 58];
-}
-
-int bit_length(unsigned long long x){
-    return 64 - __builtin_clzll(x);
-}
-
 unsigned long long isqrt_aux(int c,unsigned long long n){
     if (c == 0){
         return 1;
@@ -76,7 +64,7 @@ unsigned long isqrt(unsigned long long n){
     if (n == 0){
         return 0;
     } else {
-        unsigned long long a = isqrt_aux((bit_length(n) - 1) / 2, n);
+        unsigned long long a = isqrt_aux(( 63 - __builtin_clzll(n)) / 2, n);
         return n < a * a ? a - 1 : a;
     }
 }
