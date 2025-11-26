@@ -80,7 +80,5 @@ int main(){
         s = sample[i];
         ss = isqrt(sample[i]);
         cout << s << " -> " << ss << "\n";
-        cout << bit_length_(s) << "\n";
-        cout << (ss*ss <= s) << " " << (s < (ss+1)*(ss+1)) << "\n";
     }
 }
